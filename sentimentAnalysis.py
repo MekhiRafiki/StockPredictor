@@ -80,6 +80,66 @@ def googleFinanceParser(companySymbol, companyDict, visitedURLS):
     page = urlopen(req).read()
     googleArticleUrlParser(page)
 
+#Nasdaq Specific webscrapping
+def nasdaqArticleSentiment(article_page):
+    soup = BeautifulSoup(article_page, features="html.parser")
+    date = None
+    text = soup.find("div", {"id": "articleText"})
+    dateTime = soup.find("span", {"itemprop": "datePublished"})
+    dateTime = str(dateTime)
+    if len(dateTime) > 0:
+        date = re.search('"datePublished">(.*)<', dateTime, re.IGNORECASE)
+        if date:
+            date = date.group(1)
+    if text != None and len(text) > 0:
+        text = text.get_text()
+        sentiment = sia.polarity_scores(text)['compound']
+        return (sentiment, date)
+    else:
+        return None
+
+def nasdaqArticleUrlParser(page):
+    soup = BeautifulSoup(page, features="html.parser")
+    relevant_articles = []
+    links = soup.find_all('a')
+    urls = [link.get('href') for link in links]
+    newsArticles = [url for url in urls if '/article/' in url]
+    return newsArticles
+
+def nasdaqParser(companySymbol, companyDict, visitedURLS):
+    relevant_articles = []
+    for i in range(1,5):
+        if i == 1:
+            url = 'https://www.nasdaq.com/symbol/'+ companySymbol + '/news-headlines'
+        else:
+            url = 'https://www.nasdaq.com/symbol/'+ companySymbol + '/news-headlines?page=' + str(i)
+        page = urlopen(url).read()
+        links = nasdaqArticleUrlParser(page)
+        relevant_articles = relevant_articles + links
+
+    #uniq_count = 0
+    for articleUrl in relevant_articles:
+        url = articleUrl
+        try:
+            article_page = urlopen(url).read()
+        except:
+            print("Couldn't open one of the links")
+            print(articleUrl)
+        parsedArticleData = nasdaqArticleSentiment(article_page)
+        if parsedArticleData != None:
+            sentiment = parsedArticleData[0]
+            date = parsedArticleData[1]
+            dt = parser.parse(date)
+            newVal = (url, sentiment)
+            if dt in companyDict:
+                companyDict[dt].append(newVal)
+            else:
+                companyDict[dt] = [newVal]
+            visitedURLS.add(url)
+            #uniq_count += 1
+    #print("Uniq additions: " + str(uniq_count))
+    return companyDict
+
 
 def computeAvgSentiment(companyDict, latestDate):
     absSentiment = 0
@@ -103,6 +163,7 @@ def sentimentAnalysis(companySymbol):
     companyDict = {}
     visitedURLS = set()
     yahooFinanceParser(companySymbol, companyDict, visitedURLS)
+    nasdaqParser(companySymbol, companyDict, visitedURLS)
     #googleFinanceParser(companySymbol, companyDict, visitedURLS)
     latestDate = datetime.datetime(2019, 5, 20)
     sentiment = computeAvgSentiment(companyDict, latestDate)
@@ -120,7 +181,7 @@ def sentimentAnalysis(companySymbol):
     #print(relevant_articles)
 
 def main():
-    companySymbol = "TSLA"
+    companySymbol = "AAPL"
     sentimentAnalysis(companySymbol)
 
 
