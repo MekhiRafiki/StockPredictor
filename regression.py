@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression as LR
 
 def open_file(stock):
     stock_data = []
-    path = 'historic_data/' + stock + '.csv'
+    path = 'historical_data/' + stock + '.csv'
     with open(path, 'r') as csv_data:
         stock_data_temp = csv.reader(csv_data)
         stock_header = next(stock_data_temp)
