@@ -99,8 +99,7 @@ def computeAvgSentiment(companyDict, latestDate):
     return (absSentiment, overall_sentiment)
 
 
-def main():
-    companySymbol = "TSLA"
+def sentimentAnalysis(companySymbol):
     companyDict = {}
     visitedURLS = set()
     yahooFinanceParser(companySymbol, companyDict, visitedURLS)
@@ -120,7 +119,9 @@ def main():
         print("Your requested stock will be stable")
     #print(relevant_articles)
 
-
+def main():
+    companySymbol = "TSLA"
+    sentimentAnalysis(companySymbol)
 
 
 
