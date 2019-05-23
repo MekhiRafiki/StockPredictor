@@ -159,13 +159,12 @@ def computeAvgSentiment(companyDict, latestDate):
     return (absSentiment, overall_sentiment)
 
 
-def sentimentAnalysis(companySymbol):
+def sentimentAnalysis(companySymbol, latestDate):
     companyDict = {}
     visitedURLS = set()
     yahooFinanceParser(companySymbol, companyDict, visitedURLS)
     nasdaqParser(companySymbol, companyDict, visitedURLS)
     #googleFinanceParser(companySymbol, companyDict, visitedURLS)
-    latestDate = datetime.datetime(2019, 5, 20)
     sentiment = computeAvgSentiment(companyDict, latestDate)
     absSentiment = sentiment[0]
     overall_sentiment = sentiment[1]
@@ -182,7 +181,8 @@ def sentimentAnalysis(companySymbol):
 
 def main():
     companySymbol = "AAPL"
-    sentimentAnalysis(companySymbol)
+    latestDate = datetime.datetime(2019, 5, 20)
+    sentimentAnalysis(companySymbol, latestDate)
 
 
 
