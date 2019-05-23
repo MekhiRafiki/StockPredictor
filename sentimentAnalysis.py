@@ -10,6 +10,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 sia = SentimentIntensityAnalyzer()
 SENTIMENT_BOUNDARY = 0
+MAX_NASDAQ_PAGES = 5
 
 def readFile(fileName):
     contents = []
@@ -108,7 +109,7 @@ def nasdaqArticleUrlParser(page):
 
 def nasdaqParser(companySymbol, companyDict, visitedURLS):
     relevant_articles = []
-    for i in range(1,5):
+    for i in range(1,MAX_NASDAQ_PAGES):
         if i == 1:
             url = 'https://www.nasdaq.com/symbol/'+ companySymbol + '/news-headlines'
         else:
