@@ -4,6 +4,7 @@ import numpy as np
 import datetime
 from sklearn.linear_model import LinearRegression as LR
 
+
 def open_file(stock):
     stock_data = []
     path = 'historical_data/' + stock + '.csv'
@@ -52,14 +53,14 @@ def run_trials(model, train_x, train_y, stock_data, header_dict):
         index = random.randint(0,len(train_x))
         test_x = [train_x[index]]
         predicted_y = model.predict(test_x)[0][0]
-        
+
         actual_y = train_y[index][0]
         old_y = stock_data[index][header_dict['Open']]
 
         #((y / old) - 1) * 100 <- percentage change
         actual_change = ((float(actual_y) / float(old_y)) - 1) * 100
         predicted_change = ((float(predicted_y) / float(old_y)) - 1) * 100
-        
+
         predict_date = stock_data[index+1][header_dict['Date']]
         print("date: ", predict_date)
         print("actual change: ", actual_change, '%')
@@ -94,12 +95,17 @@ def linear_regression(stock, latest_date):
 
     run_trials(model, train_x, train_y, stock_data, header_dict)
 
-def main():
-    stock = 'GOOG'
+def linear_predict(stock):
     latest_date = datetime.datetime(2019, 5, 20)
     assert latest_date < datetime.datetime.now()
-    linear_regression(stock, latest_date)
+    return linear_regression(stock, latest_date)
+    #predict()
+#def main():
+#    stock = 'GOOG'
+#    latest_date = datetime.datetime(2019, 5, 20)
+#    assert latest_date < datetime.datetime.now()
+#    linear_regression(stock, latest_date)
     #predict()
 
-if __name__ == '__main__':
-	main()
+#if __name__ == '__main__':
+#	main()

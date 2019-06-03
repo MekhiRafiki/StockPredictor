@@ -1,4 +1,9 @@
 import numpy as np
+import regression
+import sentimentAnalysis as SA
+
+NUM_TRAINING_EXAMPLES = 4
+COMPANY_SYMBOL = "GOOGL"
 
 class NeuralNetwork():
 
@@ -50,6 +55,10 @@ if __name__ == "__main__":
     print(neural_network.synaptic_weights)
 
     #training data consisting of 4 examples--3 input values and 1 output
+    for i in range(NUM_TRAINING_EXAMPLES):
+        example = []
+        example.append(SA.getSentiment(COMPANY_SYMBOL))
+        example.append(regression.linear_predict(COMPANY_SYMBOL))
     training_inputs = np.array([[0,0,1],
                                 [1,1,1],
                                 [1,0,1],
