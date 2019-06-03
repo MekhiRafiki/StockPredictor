@@ -170,6 +170,11 @@ def newsAPIParser(companyDict, visitedURLS, stockName = "Google", from_date = '2
             )
     response = requests.get(url)
     response_json = response.json()
+    if 'articles' not in response_json:
+        print(response_json['status'])
+        print(response_json['code'])
+        print(response_json['message'])
+
     articles = response_json['articles']
     links = []
     for item in articles:
@@ -210,27 +215,37 @@ def computeAvgSentiment(companyDict, latestDate):
                     absSentiment -= 1
                 avgSentiment += articleSentiment[1]
                 validArticleCount +=1
-    overall_sentiment = avgSentiment / validArticleCount   #statistics.mean(avgSentiment)
+    if validArticleCount == 0:
+        overall_sentiment = 0
+    else:
+        overall_sentiment = avgSentiment / validArticleCount
     return (absSentiment, overall_sentiment, validArticleCount)
 
-def sentimentAnalysis(companySymbol, companyName, latestDate, endDate):
-    companyDict = {}
+def sentimentAnalysis(companySymbol, companyName, latestDate, endDate, companyDict = {}):
     visitedURLS = set()
-    yahooFinanceParser(companySymbol, companyDict, visitedURLS)
-    print("Finished Yahoo")
-    nasdaqParser(companySymbol, companyDict, visitedURLS)
-    print("Finished NasDaq")
-    newsAPIParser(companyDict, visitedURLS, companyName, latestDate, endDate)
-    print("Finished newsAPI")
+    if companyDict == {}:
+        yahooFinanceParser(companySymbol, companyDict, visitedURLS)
+        print("Finished Yahoo")
+        nasdaqParser(companySymbol, companyDict, visitedURLS)
+        print("Finished NasDaq")
+
+    # NewsAPI Plan restriction
+    endDate = datetime.datetime.now()
+    restriction_date = endDate.replace(year = endDate.year, month=endDate.month-1, day = endDate.day)
+    if latestDate >= restriction_date:
+        #newsAPIParser(companyDict, visitedURLS, companyName, latestDate, endDate)
+        1+1
+    #print("Finished newsAPI")
+
     #googleFinanceParser(companySymbol, companyDict, visitedURLS)
     sentiment = computeAvgSentiment(companyDict, latestDate)
     absSentiment = sentiment[0]
     overall_sentiment = sentiment[1]
     articleCount = sentiment[2]
-    print("Based on article sentiment since " + str(latestDate) + " on " + str(articleCount) + " articles")
-    print("Absolute: " + str(absSentiment) + '\t' + "Overall Sentiment: " + str(overall_sentiment))
+    #print("Based on article sentiment since " + str(latestDate) + " on " + str(articleCount) + " articles")
+    #print("Absolute: " + str(absSentiment) + '\t' + "Overall Sentiment: " + str(overall_sentiment))
 
-    return (overall_sentiment, articleCount)
+    return (overall_sentiment, articleCount, companyDict)
 
     #if overall_sentiment > 0:
     #    print("Your requested stock will increase!")
@@ -241,14 +256,14 @@ def sentimentAnalysis(companySymbol, companyName, latestDate, endDate):
 
     #print(relevant_articles)
 
-def getSentiment(companySymbol, companyName, latestDate, toDate):
-    return sentimentAnalysis(companySymbol, "Apple", latestDate, endDate)
+def getSentiment(companySymbol, companyName, latestDate, endDate, companyDict):
+    return sentimentAnalysis(companySymbol, companyName, latestDate, endDate, companyDict)
 
-#def main():
-#    companySymbol = "AAPL"
-#    latestDate = datetime.datetime(2019, 5, 20)
-#    endDate = datetime.datetime.now()
-#    sentimentAnalysis(companySymbol, "Apple", latestDate, endDate)
+def main():
+    companySymbol = "GOOGL"
+    latestDate = datetime.datetime(2019, 5, 26)
+    endDate = datetime.datetime.now()
+    sentimentAnalysis(companySymbol, "Google", latestDate, endDate)
 
 
 
