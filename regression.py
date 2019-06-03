@@ -6,8 +6,25 @@ from sklearn.linear_model import LinearRegression as LR
 from yahoo_finance_api2 import share
 from yahoo_finance_api2.exceptions import YahooFinanceError
 
-def open_file(stock):
+def transform_symbol_data(symbol_data):
     stock_data = []
+    for i in range(len(symbol_data['timestamp'])):
+        time = symbol_data['timestamp'][i]
+        time = time / 1000
+        fix_time = datetime.datetime.utcfromtimestamp(time)
+        symbol_data['timestamp'][i] = fix_time
+    stock_header = []
+    keys = list(symbol_data.keys())
+    for key in keys:
+        stock_header.append(key)
+    for i in range(len(symbol_data['timestamp'])):
+        row = [symbol_data[keys[0]][i], symbol_data[keys[1]][i], symbol_data[keys[2]][i], symbol_data[keys[3]][i], symbol_data[keys[4]][i], symbol_data[keys[5]][i]]
+        stock_data.append(row)
+    
+    return stock_data, stock_header
+
+def open_file(stock):
+    # stock_data = []
 
     stock_share = share.Share(stock)
     symbol_data = None
@@ -21,21 +38,7 @@ def open_file(stock):
         print(e.message)
         sys.exit(1)
 
-    for i in range(len(symbol_data['timestamp'])):
-        time = symbol_data['timestamp'][i]
-        time = time / 1000
-        fix_time = datetime.datetime.utcfromtimestamp(time)
-        # .strftime('%Y-%m-%d')
-        symbol_data['timestamp'][i] = fix_time
-    stock_header = []
-    keys = list(symbol_data.keys())
-    for key in keys:
-        stock_header.append(key)
-    for i in range(len(symbol_data['timestamp'])):
-        row = [symbol_data[keys[0]][i], symbol_data[keys[1]][i], symbol_data[keys[2]][i], symbol_data[keys[3]][i], symbol_data[keys[4]][i], symbol_data[keys[5]][i]]
-        stock_data.append(row)
-
-    return stock_data, stock_header
+    return transform_symbol_data(symbol_data)
 
 def make_header_dict(header):
     stock_dict = {}
@@ -61,6 +64,10 @@ def print_statistics(model, train_x, train_y):
     print('slope:', model.coef_)
 
 def run_trials(model, train_x, train_y, stock_data, header_dict):
+    '''
+    this function predicts on 5 randomly chose dates
+    mostly for testing purposees
+    '''
     num_trials = 5
     for i in range(num_trials):
         index = random.randint(0,len(train_x))
@@ -105,6 +112,9 @@ def predict(model, train_x, stock_data, header_dict, date):
     return predicted_change
 
 def linear_regression(stock, latest_date):
+    '''
+    this function creates the linear regression model
+    '''
     stock_data, stock_header = open_file(stock)
     header_dict = make_header_dict(stock_header)
     print("Stock:", stock)
@@ -132,7 +142,7 @@ def linear_regression(stock, latest_date):
     return model, train_x, train_y, stock_data, header_dict
 
 def main():
-    stock = 'FB'
+    stock = 'GOOG'
     date = datetime.datetime(2019, 5, 31)
     assert date < datetime.datetime.now()
     model, train_x, train_y, stock_data, header_dict = linear_regression(stock, date)
