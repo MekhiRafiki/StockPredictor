@@ -1,0 +1,43 @@
+Watchdog Group Files Complaint Over Google Tracking In-Person Purchases
+A privacy watchdog group has filed a complaint with the FTC over Google's system for tracking purchases Internet users make in person, at physical store locations.
+
+Google announced the new service — a way for advertisers to measure the effectiveness of an online ad campaign — in May. It combines Google's search and app records with credit card purchase data acquired from third-party sources. "We invested in building industry-leading privacy protections before launching this solution," the company tells NPR in a statement. "All data is encrypted and aggregated."
+
+The Electronic Privacy Information Center is concerned that Google's methods, the details of which are not public, may not sufficiently safeguard users' privacy. The center, also known as EPIC, is asking the Federal Trade Commission to investigate.
+
+Google Says It Will No Longer Read Users' Emails To Sell Targeted Ads
+THE TWO-WAY
+Google Says It Will No Longer Read Users' Emails To Sell Targeted Ads
+"Google claims that they don't know who the users are, that they are being de-identified," says Marc Rotenberg, the president of EPIC. "We want the FTC to take a closer look."
+
+'Store Sales Measurement'
+
+Google is both a search behemoth and an online advertising powerhouse, and it takes advantage of its vast collection of data to create detailed ad metrics. For several years, the company has been using location data on phones to track store visits — for example, to see how many people clicked on a PetSmart ad and then visited their local PetSmart.
+
+But the new system goes further, and looks at actual purchases, by relying on in-store credit card transactions. Google says it doesn't have access to that data directly. However, the company has "third-party partnerships" that "capture approximately 70% of credit and debit card transactions in the United States," Google said in May.
+
+Article continues after sponsor message
+
+That data gets cross-referenced with information Google already has, to connect user accounts to in-person purchases. Aggregated data showing the relationship between Google ads and purchases is then delivered to advertisers.
+
+As Congress Repeals Internet Privacy Rules, Putting Your Options In Perspective
+ALL TECH CONSIDERED
+As Congress Repeals Internet Privacy Rules, Putting Your Options In Perspective
+Google has provided few specifics about how this process works, but the company says that it can't identify "particular individuals" and doesn't know what products a person purchased. The Washington Post reported on the tool in May:
+
+"Google executives say they are using complex, patent-pending mathematical formulas to protect the privacy of consumers ... The mathematical formulas convert people's names and other purchase information, including the time stamp, location, and the amount of the purchase, into anonymous strings of numbers. The formulas make it impossible for Google to know the identity of the real-world shoppers, and for the retailers to know the identities of Google's users, said company executives, who called the process 'double-blind' encryption."
+
+Rotenberg says that Google has never identified who its third-party partners are, "what data is acquired or what steps they are taking to de-identify that data." Without those details, he says, there's good reason to be skeptical of the company's claims of anonymity.
+
+He points to examples like Snapchat, the app that said that photos posted on its platform would disappear forever. EPIC challenged that claim in an FTC complaint. The FTC agreed that Snapchat was being misleading, and the company eventually settled the charges.
+
+Rotenberg says that if Google's anonymizing practices are as robust as they say, that likely alleviate EPIC's privacy concerns. But without an independent investigation, he says, it's impossible to evaluate Google's claims that the process is fully anonymous.
+
+Your Shareable Google Maps Lists May Be Really Interesting To Advertisers
+ALL TECH CONSIDERED
+Your Shareable Google Maps Lists May Be Really Interesting To Advertisers
+EPIC also complains that the opt-out process is "opaque and misleading," with most users not realizing that they'd need to opt out of such a system.
+
+Google tells NPR that users have "robust controls" over their data, and can opt out of purchase tracking by removing permission for Google to use their "Web and App activity." (To do so, visit "My Activity" in your Google account, select "Activity Controls" and de-select "Web and App activity.")
+
+Google tells NPR the store sales measurement product is currently in beta and only in the United States for certain advertisers.

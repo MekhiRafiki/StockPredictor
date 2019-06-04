@@ -1,0 +1,395 @@
+Artificial Intelligence's "Holy Grail" Victory
+The ancient board game of Go highlights AI's incredible future.
+Artificial Intelligence's "Holy Grail" Victory
+The ancient board game of Go highlights AI's incredible future.
+Ilan Moscovitz (TMFDiogenes)
+Dec 31, 2017 at 1:22PM
+In 1943, at the height of World War II, the U.S. military hired an audacious psychologist named B.F. Skinner to develop pigeon-guided missiles. These were the early days of munitions guidance technology, and the Allies were apparently quite desperate to find more reliable ways to get missiles to hit their targets.
+
+It went like this: Skinner trained pigeons to peck at an image of the military target projected onto a screen. Whenever their beaks hit the moving target dead center, he rewarded the birds with food pellets. Once the pigeons had learned how to peck at targets, they earned their wings: Skinner would strap three of his little pilots into a missile cockpit specially fitted with straps attached to gyroscopes that would steer the bomb.
+
+The goal was to have the pigeons peck at an image of the bomb's target, their little straps twisting and bending, gyroscopes whirling, guiding the bomb and the birds to their final resting place.
+
+B.F. Skinner holding a pigeon next to a bomb with three miniature cockpits
+IMAGE SOURCE: ANTON VAN DALEN, B.F. SKINNER WITH 1943 DEMONSTRATION MODEL "PROJECT PIGEON", 1986. MEDIUM: OIL ON CANVAS. SIZE: 48 X 64 INCHES. USED WITH PERMISSION OF THE ARTIST.
+
+The military eventually pulled the plug on Project Pigeon, while Skinner continued to develop a discipline that came to be known as behavioral psychology. "Behavioral" because, unlike his Freudian predecessors, Skinner didn't care about unobservable characteristics of conscious intelligence -- things like thoughts, emotions, desires, and fears. He just wanted to discover how to train animals (and his children) using scientific techniques of stimulus, reward, and punishment.
+
+If there's a modern Project Pigeon, it's DeepMind's AlphaGo. Over the past three years, using techniques similar to those Skinner pioneered, DeepMind has developed some of the most sophisticated machine-learning techniques to train a computer with artificial intelligence (AI) to master the ancient board game of Go.
+
+Weirdly enough, this millennia-old board game is the perfect demonstration of human complexity, machine limitations, and how powerful AI has become.
+
+For decades, researchers considered playing Go to be the holy grail of game-playing AI. No computer had ever come close to beating a professional in an even, full-board game. Many thought it impossible.
+
+Intriguingly, AlphaGo plays Go with something akin to human-like intuition. That's new. Computers have always been good at doing the kinds of tasks that we can logically define, such as multiplying large numbers, storing information, and playing recorded movies. But they struggle with implicit knowledge. Those are the things we know how to do but cannot explain -- even to ourselves -- how we do them. Recognizing faces, learning a language, identifying diseases, and exercising common sense are all activities we might like machines to perform, but which can't be codified in a set of rules. Broadening AI's capabilities to include implicit knowledge opens up a vast number of new tasks to computers.
+
+But DeepMind's biggest achievement lies in the fact that AlphaGo mastered the world's thorniest game without having anyone ever teach it how to play Go. That's because fundamentally DeepMind didn't program a Go-playing machine; rather, DeepMind built a learning machine that taught itself to play Go.
+
+And a computer that excels at learning may be able to learn other things, too. Even as AlphaGo was busy practicing Go, it was learning to manage DeepMind's power consumption, saving 40% of the energy used by the latter's data center cooling systems. This isn't just a big deal for DeepMind's parent company, Alphabet (NASDAQ:GOOGL) (NASDAQ:GOOG). With data centers consuming 3% of the world's energy usage, it doesn't take a lot of imagination to see that just the efficiency gains from machine learning could reshape worldwide patterns of manufacturing and consumption.
+
+AlphaGo is but two years old. We have scant experience with state-of-the-art machine learning. Its abilities, flaws, and quirks are unknown to us. And because of the makeup of its architecture, we can't interrogate AlphaGo about its thinking processes any more than we could crack open a human brain to see its thoughts.
+
+But we do have 221 publicly available game records. And they reveal the alter-human thinking that's poised to revolutionize information technology, transportation, business, and more.
+
+I studied dozens of games spanning every stage of AlphaGo's development in addition to DeepMind's published scientific papers. They can help us to visually grasp AlphaGo's personality and how other artificially intelligent machines might think and behave in the future.
+
+If you want to understand what AI is capable of, AlphaGo is the place to start.
+
+Go, in 10 seconds
+The rules of Go are simple.
+
+Players take turns placing a white or black stone on a grid.
+
+A hand placing a white stone on a Go board
+IMAGE SOURCE: GETTY IMAGES.
+
+If a group of stones is surrounded by an opponent's stones, it is captured and removed from the board.
+
+A group of black stones gets surrounded and captured by white stones
+CAPTURE STONES BY SURROUNDING THEM. IMAGES AND ANIMATIONS CREATED BY AUTHOR USING GOBAN WITH PERMISSION OF SENTE.
+
+The player who surrounds the most territory, as white does in the following game, wins:
+
+Go board with white's and black's respective territory shaded their respective colors
+SCORING, AFTER A GAME. BLACK HAS TERRITORY ON THE LEFT, RIGHT, AND TOP. WHITE HAS TERRITORY ON THE BOTTOM AND UPPER-LEFT CORNER. IMAGE BY AUTHOR.
+
+That's basically it.
+
+To understand why such a simple game has confounded AI research for decades, it's helpful to contrast Go with chess.
+
+For decades, it was said that computers would be intelligent if they could play chess. Then, half a century after Alan Turing published the first chess algorithm, IBM's (NYSE:IBM) Deep Blue supercomputer beat world champion Garry Kasparov.
+
+Deep Blue's success was impressive, but IBM's algorithms were fundamentally similar to those of Turing's 1950 program. What finally made Deep Blue possible was a 3-million-fold increase in computing power since Turing's day.
+
+One little-noticed fact: The same year that Deep Blue beat the world's greatest chess player, state-of-the-art Go AI had only achieved the skill level of a decent beginner.
+
+Why Go is the perfect testing ground
+I once asked Kasparov if he'd ever played Go.
+
+"No."
+
+Would you like to?
+
+"No."
+
+Why not?
+
+"It's too difficult."
+
+What?
+
+"It's a completely different way of thinking."
+
+It's that "different way of thinking" that has for so long eluded machines.
+
+Deep Blue beat Kasparov with brute force: It memorized lots of games, it applied tactical and strategic rules of thumb, and it used superior processing power to read future move possibilities more deeply than could Kasparov (though just barely). But computers cannot master Go through sheer processing power. And they can't do it for many of the same reasons they've never been able to perform other, more crucial, tasks.
+
+Possibilities in chess are limited by an 8 x 8 board and rules that define where you can move specific pieces. By contrast, a full-sized Go board measures 19 x 19, and stones can be played just about anywhere.
+
+The upshot is that a chess player is faced with an average of 35 choices for each move. Go averages 250 options. This figure is known as a problem's "branching factor," and it is a bane of AI. If you multiply 250 by itself enough times -- to evaluate possible responses, counter-responses, and so forth -- you quickly arrive at a number of positions much greater than the number of atoms in the universe, which would take all of the world's computers well over a million years to map out.
+
+In fact, it wasn't even until last year that anyone managed to calculate how many possible Go board states there are. (It's about 2.081681994 x 10^170. Or, in plain English, over two hundred quinquinquagintillion.)
+
+A very long number overlaid on top of a Go board
+THE NUMBER OF POSSIBLE GO BOARD STATES EQUALS APPROXIMATELY 2.081681994 X 10^170. IMAGE BY AUTHOR. CALCULATIONS BY JOHN TROMP.
+
+Since no one -- human or supercomputer -- could ever examine every possibility, players rely on feeling and intuition. To an experienced Go player, a good move feels right and looks beautiful. Go's humanness is what makes the game impenetrable for machines.
+
+Second, it's tricky to quantify the value of a move. Even figuring out who's winning can be a challenge.
+
+Chess pieces have clear values: a pawn is worth 1 point; a knight, 3; a rook, 5; and so on. You can get a rough sense of who's winning by comparing the values of captured pieces. Deep Blue employed dozens of such rules of thumb to locate good moves. But Go stones have no inherent, fixed value; they matter only in their relation to one another. Uncertain move values further complicate decision-making.
+
+Third, most Go situations involve some kind of bargain. The trick is to find out what your opponent wants, and to force your opponent to give you something you want in return. Trying to take everything ends badly. So robotic inflexibility is out.
+
+Finally, the things you trade have abstract values that are not always quantifiable. Aside from points, a player might want influence (stones that could be useful in a later fight), sente (the freedom to choose where to play next), or aji (literally "aftertaste," an untranslatable Japanese term for latent shenanigans: "Aji," one teaching resource explains, "is like a stone in your shoe when you are late. The stone hurts -- and as a result, you can't run as fast. But because you are late, you cannot stop to take it out").
+
+Here's a simple example. Black could seal off valuable corner points with another couple of moves:
+
+Black stones surround the top right corner of the board, and white stones make a wall facing downwards to the right side.
+A SEQUENCE WHERE BLACK TAKES CORNER TERRITORY. IMAGE AND ANIMATION BY AUTHOR.
+
+Or, black could trade away the corner territory to white. In return, black gets stones facing the side and center, which might become useful in the future (influence). The marked white stone is severely weakened, but it could become a complicating nuisance for black later on (aji). It's black's turn, and black can play wherever it likes (sente).
+
+Black stones corral white stones into the top right corner and make a wall outside of them.
+A SEQUENCE WHERE BLACK TRADES CORNER POTENTIAL TO GAIN INFLUENCE. IMAGE AND ANIMATION BY AUTHOR.
+
+You can see the impossibility of placing precise values on influence, aji, and sente. Much like real-world conflicting values -- customer service, stock performance, and risk mitigation for a business; do no harm, full recovery, and triage for a doctor; troop support, deadliness, and limited collateral damage for a drone -- it's apples and oranges all the way down. Machines have trouble grasping the nuances of such trade-offs because the entities are abstract, nuanced, and conceptually distinct. Nor do common synonyms exist in zeros and ones.
+
+Despite these challenges, a steady evolution in AI technology has allowed AlphaGo to master the game. These changes embody how AI evolved to its current state and presage its future. To understand where AI is headed, we need to see how we got to where we are today.
+
+
+Stage 1: Do as I say (1950s to 1960s)
+The official birth of AI occurred at a 1956 conference in Dartmouth College, formally held on the grandiose premise that "every aspect of ... intelligence can in principle be so precisely described that a machine can be made to simulate it."
+
+AI's founders took their cues from philosopher-mathematicians such as Gottlob Frege and Bertrand Russell, who had recently developed a special notation for logic. According to the leaders of this approach, the key to intelligence lay in applying the rules of logic. They made rapid progress building programs that could derive important mathematical proofs and confidently predicted that in just 10 years, a computer would master chess.
+
+But then progress hit a wall. There was an obstacle no one foresaw.
+
+Stage 2: Rules and rules of thumb (Late 1960s to early 2000s)
+As researchers began to ask computers to solve complex, real-world problems such as diagnosing diseases or translating Russian, it turned out that many of these complex problems could be solved in theory but not in practice. The time and memory requirements for solving problems tend to grow exponentially with how deeply you have to look for an answer. The halo evaporated. Researchers abandoned the phrase "artificial intelligence" to escape painful snickering from academic and research communities. There were funding cuts galore.
+
+In a way, what saved AI from irrelevance was a division of labor. Instead of trying to program machines that could do anything purely with logic, researchers lowered their expectations and began to tailor individual programs to specific problems. Limiting the kinds of problems a program needs to solve helps to limit the number of possible solutions it must search.
+
+Increasingly, programmers began to model AI after the way humans think. That often meant using heuristics, or mental shortcuts.
+
+We use heuristics all the time: The pinker the chicken, the longer you should keep it in the oven. If the tomato is firm, it's fresh enough to eat. Need more flavor? Add more seasoning.
+
+These little bits of knowledge are crucial. We couldn't live without them -- there just isn't enough time in the day to do everything perfectly.
+
+The first attempts to build Go-playing computers worked the same way. One section of code estimated game score, another influence. There were routines to recognize sente, identify how to protect important stones from being captured, access a library of common sequences, and so on for all the specialized skills advanced players use.
+
+Armed with these abilities, the computer would consider several moves. For each move, it would consider a number of possible responses, counter-responses, and so forth, until it produced a model of possible outcomes that resembled a tree. The goal was to search the game tree for the "least bad" outcome by following a path that leaves your opponent no good choices. This is how Deep Blue worked, too.
+
+Connected circular nodes branching downwards overlaid on top of a leaf
+REPRESENTATION OF TREE DATA STRUCTURE. IMAGE BY AUTHOR.
+
+Of course, just as the food a chef produces depends on the quality of the recipes, a heuristic-based AI is only as good as the heuristics humans can cook up. Moreover, the approach just isn't up to the task when the number of possibilities is truly vast.
+
+And so, after decades of slow progress, heuristic-based AI only achieved the strength of an intermediate-level Go amateur. As an opponent, AI was rigid and predictable. Memorization and rule-following don't lend well to intuition, flexibility, and creativity. Further advancements would require a revolution.
+
+
+Stage 3: Statistical (and weird!) play from rational aliens (mid-2000s to present)
+2006 saw a breakthrough with the success of a technique called Monte Carlo Tree Search (MCTS).
+
+The approach is an old one, and today it is used to bolster logistics and production management. MCTS has been applied to vehicle routing, airline scheduling, packaging, robot motion, and finance. It's made its way into popular strategy games such as Total War: Rome II, Scrabble, poker, and chess.
+
+MCTS's name may sound formidable, but the idea is simple. It replaces human-like heuristics with a simple statistical technique known as Monte Carlo simulation. When your financial advisor tells you the odds that your portfolio will last you through retirement, he or she is using Monte Carlo simulation.
+
+Just as before, you begin with a tree search. But instead of relying on hard-coded Go heuristics to estimate the best outcome, the computer just simulates a bunch of random games to see who's more likely to win.
+
+Generating random numbers is something computers can do really quickly, and it's surprisingly effective. MCTS cuts out middleman concepts such as influence and aji, offering the machine a direct route to what you ultimately care about: winning.
+
+This is the philosophy that dominates AI today: Algorithms are no longer purely logical. Nor do they imitate the way humans actually think. They just act rationally in pursuit of a goal. (Articulated by computer scientists Stuart Russell and Peter Norvig, the think versus act, humanly versus rationally distinctions form a helpful framework for the different approaches to AI.)
+
+But MCTS is fundamentally at odds with human approaches to problem-solving. How often do you sit down at the local Olive Garden and visualize 10,000 randomized menu simulations to choose between chicken and never-ending pasta?
+
+And so MCTS-based AI exhibits odd quirks. To truly appreciate how many autonomous machines of the future will make decisions, you must understand the deep strangeness of MCTS. Playing a game with an MCTS opponent can feel like sitting face-to-face with an intelligent alien who knows the rules of the game but has never seen an actual game played.
+
+During the early stages of a Go game, players generally stick to the first four lines of the board. (It's easier to secure territory in the corners and sides than in the center.) But an AI program using MCTS will often plop a stone somewhere in the middle.
+
+Here's an example, taken from a real game I played against a fairly strong AI software named Fuego:
+
+Go board with white and black stones on the first four lines of each side, and a single white stone near the center
+AN UNUSUAL MOVE BY MCTS-BASED AI FUEGO. IMAGE BY AUTHOR.
+
+Granted, Fuego's move is coherent. The stone expands white's potential on the bottom, limits black's potential on the right, and could become a lifeline to white's two stones on top should they come under attack later on:
+
+Same image as before but with white shading on the lower portion, lines connecting the shaded portion to two stones on top, and two black stones with black arrows pointing towards the white area below.
+THE UNUSUAL MOVE DOES THREE THINGS. IMAGE BY AUTHOR.
+
+But it's bizarre. This "do whatever gets you to the goal" mindset in MCTS-based AI works, but it could lead to trouble down the road because we want our self-driving cars, automated paralegals, and robotic nannies to be not just competent, but also predictable and relatable to humans.
+
+Second, an AI program using MCTS can flounder as an outcome comes into view. Winning (and therefore risk-averse) MCTS software often plays seemingly irrational and slightly harmful moves. Losing MCTS programs are more exciting -- they're prone to spectacular self-destruction.
+
+The cause is simple: Humans think we win games by boosting our lead (if we're winning) or reducing our deficit (if we're losing). But MCTS software tries to improve its probability of victory. It does not distinguish between a 5-point loss and a 50-point loss. And so, when a situation is hopeless, MCTS can no longer distinguish good options from stupid ones. On the road to defeat, every path looks equally grim.
+
+As the AI software's odds of success diminish, you begin to see what looks like waves of panic culminating in meltdown. It's a strange feeling, like watching a stock market flash crash, but for rationality.
+
+If the old tree-search model was too rigid and robotic, the MCTS approach embodies a quirky numbers-crunching savant ungrounded in experience. Sometimes hyper-rationality without common sense is indistinguishable from insanity.
+
+Stage 4: Pattern recognition (2010s to present)
+The final big break came when researchers found a way to root MCTS in pattern recognition. The key, surprising at the time, turned out to be an old machine-learning technique inspired by the human brain.
+
+Artificial neural networks are based on ideas that have been around since the 1950s. But they were long considered a backwater of machine learning. To train a neural network requires a lot of data and a lot of computing power -- things that weren't available until very recently. A confluence of important tech trends -- the internet, big data, distributed computing, and cloud storage -- have now changed that.
+
+Neural networks form the backbone of Facebook's facial recognition and News Feed curation technologies, Google Translate, self-driving car vision, and countless other applications. They're particularly good at processing images and sound.
+
+Neural networks don't actually model brains -- that's a common misconception -- but the analogy is helpful for understanding their functioning.
+
+Like a network of axons, a neural network models a web of connected data nodes known as artificial neurons. Deep neural networks contain many layers of such nodes. When you hear people use the phrase "deep learning," this is what they mean.
+
+Brain neurons communicate by sending electrical charges to other neurons via pathways of varying connection strength. Artificial neural nodes contain numbers called weights that represent how much influence they exert on each node in the next layer.
+
+Swiggly connected brain cells alongside a web of connected dots
+3D RENDERING OF BRAIN AXONS ALONGSIDE A NEURAL NETWORK FOR IDENTIFYING TYPES OF FLOWERS. IMAGE SOURCES: GETTY IMAGES (LEFT) AND AUTHOR (RIGHT), USING WEKA.
+
+As raw data flows through a neural network, each layer of nodes acts like a filter, transforming the information through increasingly high-level features.
+
+To train a neural network, you give it an example, see if it outputs the right thing, correct the error if it doesn't by changing the weights according to special mathematical functions, and repeat with new examples. Eventually, after practicing on millions of examples, it'll get better at doing what it's supposed to do. (Just like a pigeon.)
+
+Neural networks are slow learners. They need lots of examples, and they take a long time to train, because thousands of weights must be adjusted according to mathematical formulas each time it receives one of the myriad examples. But there's an upside: Neural networks are incredibly sensitive and can capture a lot of subtle information.
+
+If domain-specific tree search is the rule-following robot, and MCTS is the rational alien, then neural networks are like a child.
+
+
+How AlphaGo works
+DeepMind trained AlphaGo the same way you might teach toddlers to recognize pictures of cats. You could show them an animal picture book and point out all the cats. Next, you might visit a pet store together and let the kids try to pick out cats, letting them know which they get right and which wrong. Finally, you release your fledglings into the world, knowing that life will provide whatever feedback they need to correct any grievous cat-identification mistakes.
+
+DeepMind began by feeding AlphaGo 30 million images of Go moves from strong players that it had mined from a popular online Go server. Once AlphaGo had learned to identify what a good move looks like, it practiced on images it had never seen before to get better. Finally, AlphaGo played millions of practice games against itself, getting feedback in the form of whether it won or lost.
+
+AlphaGo also learned to estimate the odds a particular position would lead to victory by studying millions of game positions. It then reinforced that knowledge by playing millions of games against itself.
+
+So instead of learning to recognize cats, AlphaGo can peg which moves look promising. You can visualize how AlphaGo's neural network sees the board with a heat map. "Hotter" areas are those that the neural network thinks look the most promising.
+
+This comes from a game I played against Leela, a strong neural network-based Go AI:
+
+A board with stones on it and red, orange, and purple colors overlaid on several spots
+A HEAT MAP OF MOVE PROBABILITIES GENERATED BY LEELA'S NEURAL NETWORK. HOTTER AREAS ARE THOSE THAT THE NEURAL NETWORK PREDICTS HAVE A GREATER PROBABILITY OF HAVING A GOOD PLAYER CHOOSE THEM. IMAGE BY AUTHOR.
+
+Having this map allows AlphaGo to concentrate on the most promising tree branches, and it makes the Monte Carlo predictions more accurate. The result is vastly more powerful strategic intelligence than prior approaches could achieve:
+
+A chart with a green line representing tree search meandering upwards from 1990 to 2006, a blue line representing MCTS picking up and increasingly close to the y-axis with Professional marked, and a red line representing AlphaGo leaping upwards in 2016 to the top of the graph.
+CHART BY AUTHOR. TREE SEARCH RANKS ARE ESTIMATES BASED ON OUTCOMES OF INFREQUENT HUMAN-COMPUTER HANDICAPPED CHALLENGES. MCTS RANKS ARE BASED ON KGS RECORDS. ALPHAGO RANKS BASED ON OFFICIAL MATCHES. DATA FROM SENSEI'S LIBRARY AND COMPUTER GO.
+
+AlphaGo held its first match in secret at DeepMind's London headquarters, playing against then-reigning European champion Fan Hui. No computer had ever once beaten a professional. AlphaGo won the match 5-0.
+
+A few months later, when DeepMind revealed its achievement of one of AI's greatest milestones, it also announced that in just a little over one month, AlphaGo would face off against the most storied player of our generation, an elite Go master named Lee Sedol. It was a reprise of the "man vs. machine" Kasparov-Deep Blue matches.
+
+Maybe less than meets the eye
+But AlphaGo's game records cast doubt on hopes that the AI software could win its next challenge. They revealed no creative superintelligent genius. AlphaGo, it seemed, had merely learned to mimic textbook Go extremely well.
+
+Most conspicuous was its orthodox, cautious, and influence-oriented playing style -- popular decades ago in Japan and outmoded American textbooks, but at odds with state-of-the-art play.
+
+AlphaGo's cautious style resulted from a bias in its training data. Website traffic analysis confirms that the English-language Go server from which DeepMind created AlphaGo's study lessons is disproportionately popular with players from America and Japan -- the very places where amateurs still play old-fashioned Go. This serves as a reminder that subtle biases in training data can utterly change a neural network's personality -- an issue that will become increasingly significant as AI increasingly comes to rely upon big data.
+
+One moment in particular -- identified by Myungwan Kim, a top South Korean professional -- epitomizes early AlphaGo's uninventiveness.
+
+Fan, playing as black, invaded AlphaGo's territory at the bottom of the board. According to an extremely common sequence that AlphaGo must have studied countless times, white next plays A. That's how it always goes.
+
+"If you studied a hundred thousand games, all the games white would play A."
+
+Which of course AlphaGo did.
+
+A go board mostly shaded out with a white box on the bottom and white stones above it. As more black stones are played underneath, the box changes to black, and the white stones are surrounded by black stones beneath and two above with arrows pointing at them.
+IMAGE AND ANIMATION BY AUTHOR. GAME RECORD FROM GOKIFU.
+
+The sequence is supposed to be a fair exchange -- black takes white's territory, and white gets influence toward the center.
+
+But this time it was a mistake. You can see how black's two stones (marked by triangles) negate white's expected influence and threaten white's marked stones. In this particular game, white has little to show for giving up the lower side of the board.
+
+AlphaGo could imitate humans, but it couldn't originate new ideas.
+
+Unless the AI could learn to think for itself, it wouldn't stand a chance against its next opponent, the legendary Lee.
+
+We're going to need a montage
+In the five months following the Fan match, DeepMind programmers worked around the clock to revamp AlphaGo. DeepMind's CEO, himself a former child chess prodigy, assembled integrated teams of researchers, engineers, and valuation experts to synthesize their assorted skills. DeepMind also hired the philosophically minded Fan, AlphaGo's first opponent, to identify and patch up AlphaGo's weaknesses. And AlphaGo played millions of additional practice games against itself.
+
+There wasn't time to fix everything, and as their deadline approached, the team was nervous. The lead researcher on AlphaGo, David Silver, reflected:
+
+We had our evaluation match last week. We won a game, and we lost a game. And we lost a game in a way that would have made us look extremely foolish. ... We have a lot of work to do. ... There's just too much risk that we could lose.
+
+Soon enough, it was time for AlphaGo to face Lee.
+
+Originality
+One of the most creative players of the modern era, Lee is the perfect opponent for a machine. His style is intuitive, aggressive, and feared. Lee's games play out like a Beethoven symphony -- scattered fragments collide chaotically before merging into a sudden, violent climax. It's organized mayhem.
+
+Lee entered a Go academy at age 8 and began training 12 hours a day. He graduated to professional level by the time he was just 12 years old. He's been the most dominant player of the past decade.
+
+Around the globe, 280 million people tuned in to see how the untested computer would fare against the 33-year-old, 18-time world champion.
+
+Within minutes, it became clear that the new AlphaGo was a different player.
+
+Unlike its predecessor, the new AlphaGo wouldn't back down from a fight, answering Lee's complex challenges with surprising and clever responses. And it would wait for the ideal moment to launch startling attacks.
+
+Time and again, I saw AlphaGo play moves that were beautiful, unexpected, and terrifying. Such moments carried an aesthetic and strategic perfection whose implications made my stomach churn.
+
+This was nothing like the heuristic robot of the late 20th century, the rational alien of the 2000s, or the textbook excellence of its predecessor. AlphaGo had become an artist.
+
+Flexibility
+AlphaGo is exceptionally flexible, too.
+
+A remarkable example comes from game 5 against Lee, when AlphaGo (white) threw away an important group of stones in the bottom right corner to build a large central territory -- territory that it eventually also discarded in favor of developing a huge bottom-left corner.
+
+A group of white stones in the lower right is surrounded by black stones, but white surrounds territory in the center and right. Black stones interfere with that area, and a white square emerges on the lower left.
+ALPHAGO FLEXIBLY THROWS AWAY STONES IN THE BOTTOM-RIGHT CORNER WHILE GAINING CENTRAL TERRITORY, WHICH IT, TOO, DISCARDS. TAKEN FROM ALPHAGO VS. LEE SEDOL, GAME 5. IMAGE AND ANIMATION BY AUTHOR. GAME RECORD FROM AMERICAN GO ASSOCIATION.
+
+Literal-minded, single-minded
+AlphaGo may be flexible in its choice of means, but it's absolutely literal about its goal: to win.
+
+Humans tend to equate a bigger lead with being more likely to win. (This is an example of a heuristic.) But AlphaGo is different. It doesn't care how far it's ahead, just how likely it is to win. If scoring points helps, fine. But if giving up a large lead can statistically improve the odds of winning from 75% to 76%, it'll pick that route.
+
+Planning: AI becomes curious
+AlphaGo can plan for the future. And when it doesn't know what to do, it'll test the waters to find out -- just as a human would.
+
+In the following example, AlphaGo (white) is unsure where to play next because it doesn't know whether its opponent wants corner territory or the outside. But AlphaGo can force its opponent to reveal its plans so that AlphaGo can respond in the optimal way.
+
+A white stone marked green is played next to a black stone in the bottom-right corner of the board and two alternate possibilities of black responses and white counter-responses occur.
+WHITE FORCES BLACK TO REVEAL WHICH FUTURE IT HAS IN MIND. TAKEN FROM ALPHAGO VS. ALPHAGO, GAME 1 OF 50. IMAGE AND ANIMATION BY AUTHOR. GAME RECORD FROM DEEPMIND.
+
+The following example comes from a game that a later version of AlphaGo played against itself. The density of probing and forcing moves is staggering.
+
+A series of moves where the white stones are highlighted green and several possible black moves are revealed in thin opacity until one is played, and white responds.
+WHITE USES PROBES AND FORCING MOVES TO WINNOW POSSIBLE FUTURES. TAKEN FROM ALPHAGO VS. ALPHAGO, GAME 1 OF 50. IMAGE AND ANIMATION BY AUTHOR. GAME RECORD FROM DEEPMIND.
+
+Incredibly, no one explicitly taught AlphaGo about experimentation or planning for the future. Inquisitive behavior is something AlphaGo learned all on its own.
+
+I've just seen a face
+How does AlphaGo do all this?
+
+AlphaGo's farsightedness, flexibility, and originality stem from its capacity for rich, detailed experience, and total freedom from executive restraint.
+
+The world, to a neural network, is a blooming, buzzing confusion. Where we see a rabbit, a neural network sees possibilities: "80% chance of rabbit, 15% duck, and 5% hand towel."
+
+Our experience of optical illusions mimics what it would be like to have this kind of vision. The famous duck-rabbit illusion contains aspects of both a duck and a rabbit, and so it can appear to us as either one:
+
+A drawing that appears like a rabbit horizontally left to right, but if you look at it diagonally, the ears look like a bill and the image looks like a duck.
+IMAGE SOURCE: ARTIST UNKNOWN, KANINCHEN AND ENTE. PUBLISHED 1892. COURTESY OF HEIDELBERG UNIVERSITY.
+
+To peer through the eyes of a neural network would be to see a zoo in every object. A 2015 collaboration between Google and MIT managed to tease out some of the higher-level features neural networks can see. The fever-dreamlike results reveal an imagination rampant with aspect recognition.
+
+A knight riding a horse. The sky, horse, and knight are filled with hallucinogenic features such as resemblances of sea creatures.
+DEEP NEURAL NETWORKS NOTICE MYRIAD ASPECTS. IMAGE SOURCE: GOOGLE RESEARCH. USED WITH PERMISSION.
+
+Like a pareidoliac noticing fish eyeballs in cloaks, AlphaGo sees bizarre features and makes wild associations that would never occur to us.
+
+Awry, opaque
+Despite its astonishing abilities, AlphaGo isn't perfect. And in game 4, Lee cracked its code. His approach evoked Muhammad Ali's "rope-a-dope": Protect yourself, absorb lots of punches, and wait for a critical opening to strike.
+
+For much of the game, Lee allowed AlphaGo to bully him around, ceding small advantages to his digital opponent to ensure that his own territory was safe. Then, Lee gambled the entire game on a single, risky attack.
+
+The strategy worked because it forced AlphaGo into a bewilderingly complex and unique situation where its pattern-recognition software couldn't match human intuition.
+
+Here is Lee's move that broke the world's most advanced AI. You can see why the shape is so unusual -- the second you wedge a stone between four of your enemy's, it's isolated and trapped.
+
+A Go board with a highlight around a white stone surrounded by four black stones.
+MOVE 78. ALPHAGO VS. LEE SEDOL, GAME 4. IMAGE BY AUTHOR. GAME RECORD FROM AMERICAN GO ASSOCIATION.
+
+While Lee said he saw the move intuitively and quickly, AlphaGo's pattern recognition estimated the probability Lee would play it at less than 1 in 10,000.
+
+Now the machine became confused and unhinged. It crudely tried to rescue its formation on the right side, losing even more territory, before inexplicably tossing a stone to white's bottom-left fortress. Altogether, AlphaGo's meltdown lasted 12 tragicomic moves. Seeing them illustrated feels like watching a dozen own-goals in soccer:
+
+Like the previous image, but with animation of subsequent Go stones being played, several of the black ones with red highlighting.
+ANIMATION BY AUTHOR. IRRATIONAL ALPHAGO MOVES MARKED IN RED. GAME RECORD FROM AMERICAN GO ASSOCIATION.
+
+Coverage of deep learning's rapid advances has fostered in the public imagination a sense that the technology is some invincible force. But neural networks face real limitations. AlphaGo's meltdown in game 4 reveals three such shortcomings.
+
+First, neural networks are less efficient learners than humans. They depend on large amounts of experience and so can fail in unusual circumstances.
+
+Second, their missteps can be senseless and inexplicable. A Go beginner could identify the 12 moves as irrational, and the bottom-left stone as haywire.
+
+Here's another example: A team of Google researchers trained neural networks to write image captions with 95% accuracy. But look at how unusual some of its mistakes are. I submit to you that children are not bubblegum, and that "No Parking" signs don't resemble refrigerators:
+
+12 images with captions underneath each. Two of the images with incorrect captions are circled in red: A child whispering to another with the caption a little girl is blowing bubble gum, and a no parking sign with the caption a refrigerator filled with food.
+IMAGE SOURCE: VINYALS ET AL., "SHOW AND TELL: A NEURAL IMAGE CAPTION GENERATOR" (2016). USED WITH PERMISSION OF THE AUTHORS. EMPHASIS ADDED.
+
+The third problem follows from deep learning's behaviorist approach to AI. Although DeepMind fixed the cause of AlphaGo's meltdown in later versions, no one will ever understand how AlphaGo made its original mistake, because of neural networks' black-box quality. We may learn to love neural networks' predictive power, but absent explanatory abilities, we'll be reluctant to entrust them with full autonomy.
+
+A 2017 state-of-AI report prepared for the Department of Defense highlights some of these very issues:
+
+The current cycle of progress in [big data and deep learning] has not systematically addressed the engineering "ilities": reliability, maintainability, debug-ability, evolvability, fragility, attackability, and so forth.
+
+The report continued:
+
+Further, it is not clear that the existing AI paradigm is immediately amenable to any sort of software engineering validation and verification. This is a serious issue.
+
+Finally, given AI's past fits and starts, many researchers remain a bit skeptical that inflated expectations won't give way to a new, unforeseen barrier to progress.
+
+On to the next one
+For now though, the money is on seeing deep learning continue to make swift progress. Since defeating Lee Sedol 4-1, DeepMind has released three new versions of AlphaGo.
+
+AlphaGo Master went 60-0 against top Go players in a series of unofficial short time-limited online games. This April, it defeated current world champion Ke Jie 3-0 in an official match.
+
+AlphaGo Zero, unveiled in October, doesn't even need to learn from humans. Armed with just the rules of the game and three days of practice, it beat the AlphaGo that competed against Lee 100-0 using one-twelfth of the computing power, according to a paper in Nature. After 40 days of training, it beat AlphaGo Master 89-11. Curiously, the moves AlphaGo Zero developed without ever seeing a human game look even more human than the sometimes abstruse Master.
+
+Then, in early December, DeepMind set a version named AlphaZero upon Stockfish, the top chess AI, which chess professionals use for their own training. Within four hours of learning the rules of chess, AlphaZero surpassed Stockfish, and after three days, it destroyed the formerly pre-eminent chess AI in an informal match without losing a single game.
+
+Go may be just a game, but it expresses many of the same intellectual challenges real life poses. DeepMind is already turning its machine-learning discoveries into an AI software that recommends medical treatments. Many others are applying AlphaGo-like techniques to diagnostics, autonomous vehicles, and chatbots, too.
+
+AlphaGo's capabilities and personality foreshadow the future. It's shown us AI's capacity for flexibility, long-term planning, and even originality, as well as relentlessness, bias, and opacity. The economic and social effects of unleashing intelligences with these traits will transform our world. In fact, they've already done so.
+
+Next: For Artificial Intelligence, the Future Is Now
+
+Something big just happened
+I don't know about you, but I always pay attention when one of the best growth investors in the world gives me a stock tip. Motley Fool co-founder David Gardner and his brother, Motley Fool CEO Tom Gardner, just revealed two brand new stock recommendations. Together, they've tripled the stock market's return over the last 13 years.* And while timing isn't everything, the history of Tom and David's stock picks shows that it pays to get in early on their ideas.
+
+Click here to be among the first people to hear about David and Tom's newest stock recommendations.

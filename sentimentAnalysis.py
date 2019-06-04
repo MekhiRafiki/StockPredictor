@@ -4,9 +4,11 @@ from urllib.request import Request, urlopen
 import re
 from bs4 import BeautifulSoup
 import datetime
+from datetime import timedelta
 from dateutil import parser
 import requests
 import json
+import os
 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
@@ -51,22 +53,23 @@ def yahooFinanceParser(companySymbol, companyDict, visitedURLS):
     sentiments = []
     for articleUrl in relevant_articles:
         url = "https://finance.yahoo.com/" + articleUrl
-        try:
-            article_page = urlopen(url).read()
-        except:
-            print("Couldn't open one of the links")
-            print(articleUrl)
-        parsedArticleData = articleSentimentParser(article_page)
-        if parsedArticleData != None:
-            sentiment = parsedArticleData[0]
-            date = parsedArticleData[1]
-            dt = parser.parse(date)
-            newVal = (url, sentiment)
-            if dt in companyDict:
-                companyDict[dt].append(newVal)
-            else:
-                companyDict[dt] = [newVal]
-            visitedURLS.add(url)
+        if url not in visitedURLS:
+            try:
+                article_page = urlopen(url).read()
+            except:
+                print("Couldn't open one of the links")
+                print(articleUrl)
+            parsedArticleData = articleSentimentParser(article_page)
+            if parsedArticleData != None:
+                sentiment = parsedArticleData[0]
+                date = parsedArticleData[1]
+                dt = parser.parse(date)
+                newVal = (url, sentiment)
+                if dt in companyDict:
+                    companyDict[dt].append(newVal)
+                else:
+                    companyDict[dt] = [newVal]
+                visitedURLS.add(url)
     return companyDict
 
 # Two functions below are under development
@@ -123,22 +126,23 @@ def nasdaqParser(companySymbol, companyDict, visitedURLS):
     #uniq_count = 0
     for articleUrl in relevant_articles:
         url = articleUrl
-        try:
-            article_page = urlopen(url).read()
-        except:
-            print("Couldn't open one of the links")
-            print(articleUrl)
-        parsedArticleData = nasdaqArticleSentiment(article_page)
-        if parsedArticleData != None:
-            sentiment = parsedArticleData[0]
-            date = parsedArticleData[1]
-            dt = parser.parse(date)
-            newVal = (url, sentiment)
-            if dt in companyDict:
-                companyDict[dt].append(newVal)
-            else:
-                companyDict[dt] = [newVal]
-            visitedURLS.add(url)
+        if url not in visitedURLS:
+            try:
+                article_page = urlopen(url).read()
+            except:
+                print("Couldn't open one of the links")
+                print(articleUrl)
+            parsedArticleData = nasdaqArticleSentiment(article_page)
+            if parsedArticleData != None:
+                sentiment = parsedArticleData[0]
+                date = parsedArticleData[1]
+                dt = parser.parse(date)
+                newVal = (url, sentiment)
+                if dt in companyDict:
+                    companyDict[dt].append(newVal)
+                else:
+                    companyDict[dt] = [newVal]
+                visitedURLS.add(url)
             #uniq_count += 1
     #print("Uniq additions: " + str(uniq_count))
     return companyDict
@@ -202,13 +206,88 @@ def newsAPIParser(companyDict, visitedURLS, stockName = "Google", from_date = '2
             visitedURLS.add(articleUrl)
     return companyDict
 
-def computeAvgSentiment(companyDict, latestDate):
+def close(date_one, date_two):
+    d = timedelta(days=3)
+    zero = timedelta(days=0)
+    # Be sure to always take the later date
+    diff = date_one - date_two
+    if diff <= d and diff >= zero:
+        return True
+    else:
+        return False
+
+def findCorrectFiles(from_date):
+    # training
+    if close(from_date, datetime.datetime(2018, 1, 1)):
+        return "TRAIN", 0
+    elif close(from_date, datetime.datetime(2018, 2, 1)):
+        return "TRAIN", 1
+    elif close(from_date, datetime.datetime(2018, 3, 1)):
+        return "TRAIN", 2
+    elif close(from_date, datetime.datetime(2018, 4, 1)):
+        return "TRAIN", 3
+    elif close(from_date, datetime.datetime(2018, 5, 1)):
+        return "TRAIN", 4
+    elif close(from_date, datetime.datetime(2018, 6, 1)):
+        return "TRAIN", 5
+    elif close(from_date, datetime.datetime(2018, 7, 1)):
+        return "TRAIN", 6
+    elif close(from_date, datetime.datetime(2018, 8, 1)):
+        return "TRAIN", 7
+    elif close(from_date, datetime.datetime(2018, 9, 1)):
+        return "TRAIN", 8
+    elif close(from_date, datetime.datetime(2018, 10, 1)):
+        return "TRAIN", 9
+    elif close(from_date, datetime.datetime(2018, 11, 1)):
+        return "TRAIN", 10
+    elif close(from_date, datetime.datetime(2018, 12, 1)):
+        return "TRAIN", 11
+    elif close(from_date, datetime.datetime(2019, 1, 1)):
+        return "TRAIN", 12
+    # Testing
+    elif close(from_date, datetime.datetime(2019, 4, 25)):
+        return "TEST", 0
+    elif close(from_date, datetime.datetime(2019, 4, 30)):
+        return "TEST", 1
+    elif close(from_date, datetime.datetime(2019, 5, 7)):
+        return "TEST", 2
+    else:
+        return None, None
+
+def localFiles(companyDict, visitedURLS,from_date, companySymbol):
+    folder, d = findCorrectFiles(from_date)
+
+    if folder == None:
+        # Local Files havent been created
+        return companyDict
+
+    cwd = os.getcwd()
+    add_on = '/' + companySymbol + "/" + folder + "/" + str(d)
+    cwd =  cwd + add_on
+    #print(from_date.isoformat())
+    for i in range(4):
+        fpath = os.path.join(cwd, str(i))
+        f = open(fpath)
+        content = f.read()
+        sentiment = sia.polarity_scores(content)['compound']
+        #print("\t", fpath, ":", sentiment)
+        newVal = (fpath, sentiment)
+        if from_date in companyDict:
+            companyDict[from_date].append(newVal)
+        else:
+            companyDict[from_date] = [newVal]
+
+        visitedURLS.add(fpath)
+    return companyDict
+
+def computeAvgSentiment(companyDict, latestDate, pred_date):
     absSentiment = 0
     avgSentiment = 0
     validArticleCount = 0
     for date in companyDict:
-        if date >= latestDate:
+        if date >= latestDate and date <= pred_date:
             for articleSentiment in companyDict[date]:
+                print("\t Article Date: ", date.isoformat(), " @ ", articleSentiment[0] )
                 if articleSentiment[1] > SENTIMENT_BOUNDARY:
                     absSentiment += 1
                 elif articleSentiment[1] < SENTIMENT_BOUNDARY:
@@ -219,26 +298,26 @@ def computeAvgSentiment(companyDict, latestDate):
         overall_sentiment = 0
     else:
         overall_sentiment = avgSentiment / validArticleCount
+    print("\t Sentiment: ", overall_sentiment, "\t Valid Article Count: ", validArticleCount)
     return (absSentiment, overall_sentiment, validArticleCount)
 
-def sentimentAnalysis(companySymbol, companyName, latestDate, endDate, companyDict = {}):
+def sentimentAnalysis(companySymbol, companyName, latestDate, pred_date, companyDict = {}):
     visitedURLS = set()
     if companyDict == {}:
         yahooFinanceParser(companySymbol, companyDict, visitedURLS)
-        print("Finished Yahoo")
         nasdaqParser(companySymbol, companyDict, visitedURLS)
-        print("Finished NasDaq")
 
     # NewsAPI Plan restriction
     endDate = datetime.datetime.now()
     restriction_date = endDate.replace(year = endDate.year, month=endDate.month-1, day = endDate.day)
     if latestDate >= restriction_date:
-        #newsAPIParser(companyDict, visitedURLS, companyName, latestDate, endDate)
-        1+1
+        newsAPIParser(companyDict, visitedURLS, companyName, latestDate, endDate)
     #print("Finished newsAPI")
+    localFiles(companyDict, visitedURLS, pred_date, companySymbol)
 
     #googleFinanceParser(companySymbol, companyDict, visitedURLS)
-    sentiment = computeAvgSentiment(companyDict, latestDate)
+    print("From: ", latestDate.isoformat(), " To: ", pred_date.isoformat())
+    sentiment = computeAvgSentiment(companyDict, latestDate, pred_date)
     absSentiment = sentiment[0]
     overall_sentiment = sentiment[1]
     articleCount = sentiment[2]
@@ -263,7 +342,9 @@ def main():
     companySymbol = "GOOGL"
     latestDate = datetime.datetime(2019, 5, 26)
     endDate = datetime.datetime.now()
-    sentimentAnalysis(companySymbol, "Google", latestDate, endDate)
+    from_date = datetime.datetime(2018, 9, 2)
+    # localFiles({}, set({}),from_date, companySymbol)
+    #sentimentAnalysis(companySymbol, "Google", latestDate, endDate)
 
 
 

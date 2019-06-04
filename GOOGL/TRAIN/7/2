@@ -1,0 +1,46 @@
+ow Apple, Microsoft, Google, and Facebook Plan to Eliminate Flash
+After over twenty years serving videos and animations to people over the web, Adobe’s Flash media player is being put to the rest.
+
+Adobe’s (ADBE, -4.40%) decision, announced Tuesday, to stop supporting Flash comes after several big technology companies like Microsoft (MSFT, -2.94%) and Google (GOOG, -6.10%) have already said they would phase out the software in their own products due to its numerous security holes and bugs.
+
+These tech giants supported Adobe in its plans to close the curtain on Flash, and all issued their own takes on the announcement and how it will affect their respective customers.
+
+Get Data Sheet, Fortune’s technology newsletter.
+
+Here’s a rundown on what they are saying and how it affects you.
+
+Google
+As Google notes in a blog post, Flash’s popularity has greatly declined over the years. The search giant noted that three years ago, 80% of people who used its Chrome browsers on desktop computers visited a website that incorporate Flash in some way. Now, however, only 17% of PC and Chrome users visit websites with Flash, and that percentage “continues to decline.”
+
+
+The company said that it would “remove Flash completely from Chrome toward the end of 2020.” Until then, if people visit a site that uses Flash, they will be prompted to give the web site permission to run Flash.
+
+Microsoft
+Microsoft gave a timeline of how it plans to stop supporting Flash for its old-school Internet Explorer browser and its newer Microsoft Edge browser. From 2017 through 2018, people will need to give permission to the Edge browser to run Flash when they visit a website that use the tech. The Edge browser will remember their choice so that they only need to give permission once. Internet Explorer users can continue using Flash without needing to give permission.
+
+In mid-to-late 2018, however, the Edge browser will require permission from users to run Flash each time they visit a website that uses Flash. Again, Internet Explorer users can continue to visit website with Flash like they normally do.
+
+Microsoft will then disable Flash by default in its two browsers in middle or late 2019, but people will be allowed to re-enable Flash in those browsers. After re-enabling Flash, people will “will continue to require approval for Flash on a site-by-site basis.”
+
+Microsoft plans to eliminate all support for Flash by the end of 2020, and people will no longer be able to run Flash in both the Edge and Internet Explorer browsers.
+
+Apple
+As Apple (AAPL, -0.99%) notes in its blog post on the announcement, Apple has never supported Flash on its iOS-powered mobile devices like the iPhone and iPad. For its Mac lineup of personal computers, Apple said it began moving away from Flash in 2010 when it didn’t pre-install those computers with Flash.
+
+
+Now, if people install Flash onto their Macs, Flash will still remain “off by default.” This means that each time a person uses Apple’s Safari browser to visit a website with Flash, they must give the website permission to run the tech.
+
+Apple did not cite any specific timeline for phasing out Flash by the end of 2020.
+
+Facebook
+Although Facebook (FB, -7.55%) doesn’t operate a web browser like other tech companies, many developers and companies have built video games for the social network that use Flash.
+
+Facebook said that Flash-based video games will continue to run until the end of 2020, but the company is urging “developers to follow the timelines set by browsers, as this may impact your decision to migrate sooner.”
+
+
+For these game developers, Facebook wants them to migrate their Flash-based games to HTML5, which it said is “quickly becoming the best path forward for web game development.”
+
+Mozilla
+Mozilla said that beginning in August, users of its Firefox web browser will have to give permission to websites to run Flash on their browsers. In 2019, Mozilla will disable Flash for “most users,” and that only people who use the Extended Support Release version of Firefox will be able to run Flash until the end of 2020. Mozilla said in another blog post that this special version of Firefox is “intended for groups who deploy and maintain the desktop environment in large organizations such as universities and other schools, county or city governments and businesses.”
+
+Once Adobe stops issuing security updates to Flash, “no version of Firefox will load the plugin.”

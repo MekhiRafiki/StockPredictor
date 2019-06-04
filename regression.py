@@ -5,6 +5,7 @@ import datetime
 from sklearn.linear_model import LinearRegression as LR
 from yahoo_finance_api2 import share
 from yahoo_finance_api2.exceptions import YahooFinanceError
+import math
 
 date_format = '%Y-%m-%d'
 
@@ -22,7 +23,7 @@ def transform_symbol_data(symbol_data):
     for i in range(len(symbol_data['timestamp'])):
         row = [symbol_data[keys[0]][i], symbol_data[keys[1]][i], symbol_data[keys[2]][i], symbol_data[keys[3]][i], symbol_data[keys[4]][i], symbol_data[keys[5]][i]]
         stock_data.append(row)
-    
+
     return stock_data, stock_header
 
 def open_file(stock):
@@ -70,24 +71,48 @@ def run_trials(model, train_x, train_y, stock_data, header_dict):
     this function predicts on 5 randomly chose dates
     mostly for testing purposees
     '''
-    num_trials = 5
+    num_trials = 100
+    num_close = 0
+    rmse = 0
+    min_diff = 200
+    max_diff = 0
     for i in range(num_trials):
         index = random.randint(0,len(train_x))
         test_x = [train_x[index]]
         predicted_y = model.predict(test_x)[0][0]
-        
+
         actual_y = train_y[index][0]
         old_y = stock_data[index][header_dict['open']]
 
         #((y / old) - 1) * 100 <- percentage change
         actual_change = ((float(actual_y) / float(old_y)) - 1) * 100
         predicted_change = ((float(predicted_y) / float(old_y)) - 1) * 100
-        
+
         predict_date = stock_data[index+1][header_dict['timestamp']]
-        print("date: ", predict_date.strftime(date_format))
-        print("actual change: ", actual_change, '%')
-        print("predicted change: ", predicted_change, '%', end=' ')
-        print('\n')
+        #print("date: ", predict_date.strftime(date_format))
+        #print("actual change: ", actual_change, '%')
+        #print("predicted change: ", predicted_change, '%', end=' ')
+        if np.sign(predicted_change) == np.sign(actual_change):
+            # absolute
+            trial_error = abs((predicted_change*100) - (actual_change * 100))
+        else:
+            trial_error = abs((predicted_change*100) - (actual_change * 100))
+            trial_error = trial_error ** 2
+        # print("Trial Error: ", trial_error, "\n \t Pred:", predicted_change, "\t Actual: ", actual_change)
+        rmse += trial_error
+        if trial_error < 50:
+            num_close += 1
+        if trial_error < min_diff:
+            min_diff = trial_error
+        if trial_error > max_diff:
+            max_diff = trial_error
+        #print('\n')
+    rmse = math.sqrt(float(rmse/100))
+    #print("Num Close: ", num_close)
+    #print("RMSE: ", rmse)
+    #print("Min: ", min_diff)
+    #print("Max: ", max_diff)
+
 
 def find_date_data(target, stock_data, header_dict):
     target = target.strftime(date_format)
@@ -115,7 +140,7 @@ def linear_regression(stock, latest_date):
     '''
     stock_data, stock_header = open_file(stock)
     header_dict = make_header_dict(stock_header)
-    
+
     train_x = []
     train_y = []
     for i in range(len(stock_data)):
@@ -133,8 +158,8 @@ def linear_regression(stock, latest_date):
     model.fit(train_x, train_y)
 
     #print_statistics(model, train_x, train_y)
-    
-    #run_trials(model, train_x, train_y, stock_data, header_dict)
+
+    run_trials(model, train_x, train_y, stock_data, header_dict)
     return model, train_x, train_y, stock_data, header_dict
 
 def get_change_on_date(date, train_y, stock_data, header_dict):
@@ -152,7 +177,7 @@ def get_change_on_date(date, train_y, stock_data, header_dict):
         end_i, end_row = find_date_data(next_date, stock_data, header_dict)
     except:
         print('Something went wrong')
-    
+
     if start_row == None or end_row == None: #exception case
         return None
     start_value = start_row[header_dict['open']]
@@ -188,7 +213,7 @@ def main(stock, date):
     predicted_change = predict(model, train_x, stock_data, header_dict, date)
     actual_change = get_change_on_date(date, train_y, stock_data, header_dict)
     return predicted_change, actual_change
-    
+
 if __name__ == '__main__':
     stock = 'GOOG'
     date = datetime.datetime(2019, 5, 30)

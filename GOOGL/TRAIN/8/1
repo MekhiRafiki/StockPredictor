@@ -1,0 +1,84 @@
+How to Kill Active Listening on Siri, Cortana, Alexa, and Google
+Some devices are designed to listen to you, but you can axe active listening. Here's how.
+It wasn't long ago that I gleefully used my voice to start and stop videos on an Xbox 360 with a Kinect controller. Now every major tech firm—Google, Microsoft, Apple, and Amazon—has a virtual assistant bot listening for my commands.
+
+Some assistants listen via apps on smartphones; others are on smart speakers like Amazon's Echo line and Google Home. The tech behind Echo, called Alexa, is now found in many other products, from lamps to robot vacuums. But they all have one thing in common: active listening.
+
+These audio-driven assistants live to hear their wake word, which brings them to life to do your bidding. In theory, the device doesn't record or transmit anything you say until the wake word is uttered. But that hasn't stopped people complaining about the nefarious possibilities from day one. In 2016, the Executive Women's Forum launched the Voice Privacy Alliance to provide "security and privacy guidance for voice-enabled technology." At least one pundit says all this voice tech is akin to bugging your own house.
+
+ADVERTISING
+
+They have a point. Why would anyone trust a mega-corporation that lives and dies off data collected about users to not gather more data?
+
+Turning off active listening isn't always an option, or it's difficult to find, in large part because that's often the point of having such a device. But if you'd like to exercise more control over how Siri, Cortana, Alexa, or Google listen in on your life, read on for the details.
+
+Alexa
+If you have an Amazon Echo device like the Echo, Tap, Dot, Show, or Look; or a product with built-in Alexa functionality, you only really have a couple of options for putting Alexa to sleep. The easiest is to mute () the microphone(s) by tapping the button on top (Echo, Dot, and Show) or the side (Tap) when you don't want it listening.
+
+Cortana Settings
+
+Without your voice, Echo devices are nothing but Bluetooth speakers. If it can't hear you, it's useless as an assistant. But if you want an Echo without active listening, stick to the portable, battery-powered Tap. While it now supports a wake word, it doesn't require one, since it has a push-button activation, too.
+
+You can also access Alexa via the Amazon app for iOS and Android (but not the Alexa app) by tapping the microphone icon (), or on the Fire TV Stick with Voice Remote by talking into the remote while holding down a button.
+
+Note that while Amazon says Echo devices don't record anything until they hear you say "Alexa" (you can change the wake word on some devices to Amazon, Echo, or Computer), it records all your interactions after it wakes. You can delete each interactions individually in the Alexa mobile apps by going to  > Settings > History (or on the web).
+
+Alexa History
+
+To delete your history all at once, go to Amazon.com, and under Accounts & Lists > Your Content & Devices > Your Devices tab click the  menu next to a particular Echo device, and select Manage Voice Recordings. You can only do this per device, not for every single voice recording you've made across multiple Echo devices or apps.
+
+Cortana
+Named for the snarky AI in the Halo games, and voiced by the same voice actress (Jen Taylor), Cortana is the personal assistant for Windows 10, but also can be found in Microsoft products like Xbox One and apps for iOS and Android. A Cortana-based Harmon Kardon speaker, dubbed Invoke, is also coming soon.
+
+Cortana is available on all Windows 10 systems—you can even talk to her during setup to answer questions. Her circle icon is prominent on the task bar—click it to enter search terms if you don't want to say her only available wake word: "Hey Cortana."
+
+Cortana Settings
+
+To access Cortana's settings, go to Cortana on the taskbar and select the gear icon (). I suggest turning on Cortana's keyboard short cut of Windows Key () + C for easy access. The big thing to set: switch off the "Hey Cortana" option. Not only does it prevent her from actively listening, but it saves laptop battery life. It says so right there in the settings.
+
+For Cortana to hear you on your Xbox One, you need a headset or a Kinect sensor. It works just like it used to when you would say "Xbox" to the device, but now you say "Hey Cortana." You can go back to the old way via Settings > All Settings > System > Cortana Settings, then restart the console.
+
+
+If you don't want any voice commands on Xbox (not even when you say Xbox)… don't get a Kinect.
+
+If you want to really undo Cortana forever in Windows, Xbox, and life, go to Settings () > Privacy > Speech, inking, & typing. Click "Turn of speech services and typing suggestions." Then visit this page, sign in with your Microsoft account, and clear all Cortana stored data stored in the cloud.
+
+Siri
+Apple's Siri is now available on more than just iOS; find it on macOS (Sierra) and watchOS and even tvOS on the Apple TV. Naturally, it will be on the upcoming HomePod speaker. But only the speaker and the iOS devices have active listening. On Apple TV, for example, you have to hold down a button on the remote to use voice commands.
+
+ng
+The "Hey Siri" wake word is not on by default in iOS. You have to go Settings > Siri to even turn it on (or off). That leaves you the option to continue to use Siri the old-fashioned way—by holding down the Home button. (You can also go in to these settings to kill Siri altogether, or at least prevent use of Siri when the iPhone is locked.)
+
+"Hey Siri" works on iPhone 6s and above; previously the iPhone had to be plugged in to respond to this command (older chipsets needed the extra juice), but that's no longer required, if you select that setting.
+
+Can you delete Siri recordings of your conversations with the digital assistant? Reddit users found a folder on jailbroken iPhones that shows stored recordings. But what about in the cloud? Apple's "Approach to Privacy" statement reads: "When you turn Siri and Dictation off, Apple will delete the User Data associated with your Siri identifier, and the learning process will start all over again." The "identifier" is how Apple pairs Siri and Dictation info with the device—not with your Apple ID. Does that mean everything is deleted? Not for a couple of years.
+
+Maybe you can trust Apple—a Wall Street Journal article from June 2017 says innovation with Siri is stymied by the company being too concerned with privacy. Yet, ask Siri itself how to deactivate and you get this:
+
+Deactivate Siri
+Google Assistant
+The wake word "Ok Google" can be used to start a search or a two-way conversation with Google Assistant—Google's unimaginatively named answer to Alexa, Siri, and Cortana.
+
+This voice command used to be available on desktop PCs via the Chrome browser or Chromebooks, but Google axed it in 2015 since not many people used it. Right now, "Ok Google" is available on Android phones (it particularly shines on Google Pixel devices), apps like Google Allo, and Google Home.
+
+552549 android
+To turn it on or off on Android phones, open the Google app and go to  > Settings > Voice > "Ok Google" detection. Here, you can also retrain the device to better understand your voice alone—that's called a "trusted voice," and allows for active listening even if the smartphone is locked (depending on the model of phone you have). If you turn Ok Google off, you can still use voice search, but you have to tap the microphone icon () in the search bar first.
+
+You can use Ok Google on iOS, too—but it only works within the Google app. You can kill active listening there by tapping your account icon at the top (you need to be signed in to your Google account), which brings you into Settings. Tap Voice Search and toggle off the "Ok Google hotword" option. Again, you can use the () icon to still do a voice-based search.
+
+Google iOS Voice Search Settings
+
+The Google Home is Alphabet's answer to the Amazon Echo. Like the Echo, the Home listens for "Ok Google" so it can send your voice to servers and do the real work. But you can hit the mute button () on the side to prevent its microphones from listening. But there's no way to use it and not have it tied to you.
+
+If you want to delete recordings captured by Google Assistant, Home, etc. visit this site, select Voice & Audio Activity > Manage Activity, and you'll have the option to filter and delete by device and software—even ads—but also by time frame. So if you said a lot of stupid things to Google Home on Wednesday, you can kill all of that while retaining other data that Home uses to function and improve over time.
+
+ How likely are you to recommend PCMag.com?
+Samsung Bixby
+Bixby is Samsung's version of Alexa; it just rolled out in the US and speaks English and Korean. But despite once having a digital assistant called S Voice and buying Viv, voice tech created by former Siri creators, Samsung is still way behind on this front.
+
+Bixby is only available right now on the Samsung Galaxy S8, S8+, and the Galaxy Note 8. It's a bit superfluous when the phones already have Google Assistant, but maybe you'd like to have two assistants.
+
+
+The wake word for the voice part is "Hi, Bixby" or hit the Bixby button. To kill Bixby entirely on a Galaxy phone, go to  > Settings > Bixby Settings > Bixby Voice; you'll see a toggle to turn it off. You can still press the Bixby button on the interface and speak your commands.
+
+Samsung has confirmed that it's also working on a Bixby-powered smart speaker. Not bad for a company that just two years ago had to fight off bad publicity that its smart TVs were listening in on every conversation; but we only thought that because Samsung said it could happen. It's probably not far off that Bixby makes the jump to the smart TV sets.

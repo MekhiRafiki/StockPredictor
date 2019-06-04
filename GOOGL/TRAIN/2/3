@@ -1,0 +1,52 @@
+Google Just Discovered A Massive Web Leak... And You Might Want To Change All Your Passwords
+A Google researcher has uncovered what may be the most worrying web leak of 2017 so far, possibly exposing passwords, private messages and other sensitive data from a vast number of sites, including major services like Uber, FitBit and OKCupid.
+
+It's being dubbed CloudBleed by some, as the problem was caused by a vulnerability in code from a hugely popular web company, CloudFlare, and was not dissimilar to the infamous Heartbleed bug of 2015 (though possibly more severe in terms of the potential for data leakage). It's similar to Heartbleed in that CloudFlare, which hosts and serves content for a at least 2 million websites, was returning random chunks of memory from vulnerable servers when requests came in.
+
+Making the issue even more severe was the fact that search engines were caching that leaked information. Another major concern was that CloudFlare typically hosts content from different sites on the same server, so a request to one vulnerable website could reveal information about a separate, unrelated CloudFlare site.
+
+
+"For example, you could have visited a page on uber.com, and a chunk of memory from a previous request/response to okcupid.com would be returned," explained Pen Test Partners whitehat hacker Andrew Tierney. "This sensitive data could have been returned to anyone. There was no need to carry out an active attack to obtain the data - my mum may have someone else's passwords stored in her browser cache just by visiting another CloudFlare fronted site."
+
+Famous Google bug hunter Tavis Ormandy uncovered the issue, describing it in a brief post, noting that he informed CloudFlare of the problem on February 17. In his own proof-of-concept attack he was able to have the server return encryption keys, passwords and even HTTPS requests of other users from major CloudFlare-hosted sites.
+
+YOU MAY ALSO LIKE
+Cloudflare have been leaking customer HTTPS sessions for months. Uber, 1Password, FitBit, OKCupid, etc. https://t.co/wjwE4M3Pbk
+
+— Tavis Ormandy (@taviso) February 23, 2017
+
+In a later post, he found the issue to be even more severe: "I'm finding private messages from major dating sites, full messages from a well-known chat service, online password manager data, frames from adult video sites, hotel bookings. We're talking full HTTPS requests, client IP addresses, full responses, cookies, passwords, keys, data, everything."
+
+Ormandy wrote that CloudFlare sent him a draft post that "severely downplays the risk to customers," though he didn't say what he thought about the final public notification that went out Thursday. In that post, CloudFlare wrote: "The bug was serious because the leaked memory could contain private information and because it had been cached by search engines. We have also not discovered any evidence of malicious exploits of the bug or other reports of its existence.
+
+"The greatest period of impact was from February 13 and February 18 with around 1 in every 3,300,000 HTTP requests through CloudFlare potentially resulting in memory leakage (that’s about 0.00003 per cent of requests)." It admitted that the earliest date memory could have leaked was September 22 2016. CloudFlare also said one of its own private keys leaked, one for internal machine-to-machine encryption.
+
+A large list of CloudFlare websites has been uploaded to GitHub, though it's not clear just which ones leaked any data (another list found a handful of affected domains). The user who posted the Github list still recommended users of all those sites change their passwords as a precaution. Security entrepreneur Ryan Lackey recommended the same, though noted it was unlikely the average web user's password was in danger of being stolen.
+
+What's the bug?
+
+The problem lay in the way CloudFlare parsed and modified web pages when a user hit the site. When certain data was sent to the server, it would fail to parse the information properly and cough up sections of memory, jumping over the "buffer" designed to keep secret info secure. That memory might have contained sensitive data, like passwords or private communications.
+
+Ormandy found the issue by firing a load of junk data at CloudFlare servers, a process called "fuzzing." In some cases, he received responses that contained information from memory. He could then easily replicate the process to guarantee that sensitive information would be returned.
+
+CloudFlare, Google and other search engine providers have been scouring the web looking for sites that may have leaked information via the CloudBleed bug. They found 161 unique domains where leaked memory had been cached by the search engines, and that data has now been purged. "We also undertook other search expeditions looking for potentially leaked information on sites like Pastebin and did not find anything," CloudFlare added.
+
+Regardless of that cleanup and the continuing efforts of CloudFlare to remove the bug from its customers' servers, Google security researchers like Natalie Silvanovich believe the ultimate impact might be severe.
+
+tl;dr there's no guarantee that private message you sent on OkCupid isn't on the public internet somewhere https://t.co/eZrb85l9ub
+
+— Natalie Silvanovich (@natashenka) February 23, 2017
+
+UPDATE Uber says that the impact on its service was very limited. Only a handful of user session tokens were leaked, which could have allowed access to those particular accounts, and they've now been changed. Passwords were not exposed.
+
+An OKCupid spokesperson said much the same: "CloudFlare alerted us last night of their bug and we've been looking into its impact on OkCupid members. Our initial investigation has revealed minimal, if any, exposure. If we determine that any of our users has been impacted we will promptly notify them and take action to protect them."
+
+FitBit said it was investigating, adding that concerned users can change their account password whenever they wanted. It's encouraging anyone who believes they had an issue to send an email to security@fitbit.com.
+
+Keep in mind, however, that companies may not be able to determine how, when or how many times data was leaked into people's browser caches, or if any attacks took place. CloudFlare could provide some idea of the total impact, though.
+
+CloudFlare CEO Matthew Prince told FORBES that the company had logs for requests that triggered the bug. He said that during the five-day period between February 13 and February 18, every day there were approximately 100,000 requests for the affected 3,500 pages. That meant roughly 500,000 connections could have caused data to leak. For each customer, only "relatively small amounts of data" were leaked. That information was passed onto customers so they could determine the impact.
+
+He explained that the higher traffic customers were more at risk of leaking information. Because customers of CloudFlare share servers, when the vulnerability was triggered it would leak whatever random memory was passing through the system at that time. That would more often be for sites that get more visitors.
+
+As Prince noted, this problem could have been far worse if Google hadn't issued an alert. "I think we dodged a bullet there," he added. "[Malicious hackers] could have made hundreds of millions of requests to those pages and pulled a lot of data."
